@@ -1,0 +1,10 @@
+cup 21 10
+ball 210 15
+pen 22 20
+book 876 543
+nail 45 678 
+hail 21 12
+table 101 11 
+paper 54 23
+road 123 34
+wath 231 342
