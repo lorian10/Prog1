@@ -29,34 +29,39 @@ int main(){
 	
 	
 	Vector_ref<Rectangle> v;
-	for(int i = 0; i <= 800; i += 100){
-		v.push_back(new Rectangle{Point(i, i), 100, 100});
-		v[v.size()-1].set_fill_color(Color::red);
-		win.attach(v[v.size()-1]);
-	}
+	for(int i = 0; i < 8; ++i){
+		v.push_back(new Rectangle{Point(i*100, i*100), 100, 100});
+		v[i].set_fill_color(Color::red);
+		win.attach(v[i]); 
+		}
+	
+	
 	win.set_label("Red rectangles");
 	win.wait_for_button();
 	
 	
-	Vector_ref<Image> v2;
-	for(int i = 0; i < 401; i += 200){
-		v2.push_back(new Image{Point{i+200, i}, "badge.jpg"});
-		v2[v2.size()-1].set_mask(Point(100, 100), 200, 200);
-		win.attach(v2[v2.size()-1]);}
+	Image img1{Point(200,0),"badge.jpg"};
+	Image img2{Point(400,200),"badge.jpg"};
+	Image img3{Point(600,400),"badge.jpg"};
+	img1.set_mask(Point(100, 100), 200, 200);
+	img2.set_mask(Point(100, 100), 200, 200);
+	img3.set_mask(Point(100, 100), 200, 200);
+	win.attach(img1);
+	win.attach(img2);
+	win.attach(img3);
 	win.set_label("Images");
 	win.wait_for_button();
 	
 	
-	while(true){
-		for(int i = 0; i < 701; i += 100){
-			for(int j = 0; j < 701; j += 100){
-				Image ii{Point{j, i}, "badge.jpg"};
-				ii.set_mask(Point(150, 150), 100, 100);
-				win.attach(ii);
-				win.set_label("Moving image");
-				win.wait_for_button();
-			}
+	for(int i = 0; i < 701; i += 100){
+		for(int j = 0; j < 701; j += 100){
+			Image ii{Point{j, i}, "badge.jpg"};
+			ii.set_mask(Point(150, 150), 100, 100);
+			win.attach(ii);
+			win.set_label("Moving image");
+			win.wait_for_button();
 		}
 	}
+	
 
 }
